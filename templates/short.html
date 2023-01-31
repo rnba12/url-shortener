@@ -1,13 +1,25 @@
 {% extends 'base.html' %}
-
+{% block head%}
+<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+{%endblock head%}
 {% block title %}Short{% endblock title %}
 
 {% block content %}
+<script>
+    function copyDivToClipboard() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("ashortlink"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+</script>
     <div class="url">{{long_url}}</div>
     <p>Thats Pretty Long</p>
     <div id="short-url">
-        <div class="url">{{short_url}}</div>
-        <input type="image" src="{{url_for('static', filename="img/copy.svg")}}" alt="">
+        <div class="url" id="ashortlink" onclick="copyDivToClipboard()">{{short_url}}</div>
+        <img src="{{url_for('static', filename="img/copy.svg")}}" width="30px" height="30px" alt="">
     </div>
     <p>Thats better </p>
     <a href="{{ url_for ('index') }}">Go home</a>
