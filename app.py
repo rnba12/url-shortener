@@ -22,6 +22,12 @@ def index():
 def short():
     if request.method == 'POST':
         long_url = request.form['long_url']
+        link = Link(
+            url=long_url,
+            short_url='short_url'
+        )
+        db.session.add(link)
+        db.session.commit()
         return render_template('short.html', long_url=long_url, short_url=f'new url')
     else:
         return redirect('/')
