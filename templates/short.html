@@ -3,10 +3,13 @@
 {% block title %}Short{% endblock title %}
 
 {% block content %}
-    <h1>{{long_url}} </h1>
-    <h2>Thats pretty long</h2>
-    <h1>{{short_url}}</h1>
-    <h1>Thats better </h1>
+    <div class="url">{{long_url}}</div>
+    <p>Thats Pretty Long</p>
+    <div id="short-url">
+        <div class="url">{{short_url}}</div>
+        <input type="image" src="{{url_for('static', filename="img/copy.svg")}}" alt="">
+    </div>
+    <p>Thats better </p>
     <a href="{{ url_for ('index') }}">Go home</a>
 
 {% endblock content %}

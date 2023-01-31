@@ -31,7 +31,7 @@ def short():
         db.session.commit()
         return render_template('short.html', long_url=long_url, short_url=short)
     else:
-        return redirect('/')
+        return render_template('short.html', long_url='www.website.co.uk', short_url='shorty/web')
     
 
 @app.route('/<string:url>', methods=['GET'])
@@ -51,5 +51,3 @@ def handler_500(err):
 def handler_400(err):
     return redirect('/')
       
-if __name__ == "__main__":
-    app.run(debug=True)
