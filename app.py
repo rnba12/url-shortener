@@ -36,7 +36,7 @@ def short():
 
 @app.route('/<string:url>', methods=['GET'])
 def link(url):
-    long_url = db.one_or_404(db.select(Link).filter_by(short_url=url))
+    long_url = db.one_or_404(db.select(Link.url).filter_by(short_url=url))
     return redirect(long_url)
 
 @app.errorhandler(exceptions.NotFound)
