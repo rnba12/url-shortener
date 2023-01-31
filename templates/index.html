@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <h1>Url shortener</h1>
+    <form action="/short" method="post">
+        <input type="text" name="long_url" id="long_url" placeholder="Enter URL" required>
+        <input type="submit" value="Make it short">
+    </form>
+
+{% endblock content %}
