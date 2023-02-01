@@ -31,7 +31,8 @@ def short():
         db.session.commit()
         return render_template('short.html', long_url=long_url, short_url=short)
     else:
-        return render_template('short.html', long_url='www.website.co.uk', short_url='shorty/web')
+        # return render_template('short.html', long_url='www.website.co.uk', short_url='shorty/web')
+        redirect('/')
     
 
 @app.route('/<string:url>', methods=['GET'])
