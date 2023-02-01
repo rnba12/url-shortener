@@ -22,7 +22,7 @@
     <p>That's Pretty Long</p>
     <div class ="animated squash url-box">
         <div class="url" id="ashortlink" >{{short_url}}</div>
-        <img id="copy" src="{{url_for('static', filename="img/copy.svg")}}"  onclick="copyDivToClipboard()" alt="">
+        <img id="copy" src="{{url_for('static', filename="img/copy.svg")}}"  onclick="copyDivToClipboard()" alt="Copy Link">
     </div>
     <p>That's better </p>
     <a href="{{ url_for ('index') }}">Go home</a>

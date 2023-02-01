@@ -23,6 +23,10 @@ def short():
     if request.method == 'POST':
         long_url = request.form['long_url']
         short = shorten()
+
+        if long_url.startswith('https://') == False:
+            long_url = f'https://{long_url}'
+
         link = Link(
             url=long_url,
             short_url=short
