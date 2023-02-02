@@ -8,12 +8,14 @@
     <h1>Url Shortener</h1>
     <form action="/short" method="post">
         <input type="text" name="long_url" id="long_url" placeholder="Enter URL" required>
-        <input id="toggle" type="submit" value="Make it short">
+        <input id="toggle" type="submit" value="Make It Short">
 
     </form>
 
     
-    <div class="square animated slide-up">
+    <div class="square animated slide-up"><div id="info">
+        <p>Free URL Shortener</p><p>Turn your long urls to short, easy to read links with this free url generator.</p>
+    </div></div>
 
 {% endblock content %}
 
