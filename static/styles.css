@@ -8,6 +8,20 @@ body {
     margin-top: 100px;
     background: #f1f2f7;
     overflow: hidden;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
 }
 
 h1 {
@@ -19,6 +33,20 @@ h1 {
   font-size: 24px;
 }
 
+#bottom{
+  position: absolute;
+  bottom: 0;
+  color:#f1f2f7;
+}
+#bottom p{
+  font-size: 12px;
+  text-align: center;
+}
+
+#info p {
+  font-size: 15px;
+  text-align: center;
+}
 
 input[type="text"] {
     width: 400px;
@@ -40,11 +68,24 @@ input[type="submit"] {
     padding: 17px;
     font-weight:700;
     font-size: 16px;
+
 }
+
+
 
 input[type="submit"]:hover {
     opacity: 70%;
     cursor: pointer;
+    box-shadow: 10px 5px 5rgba(0, 0, 0, 0.63)
+}
+
+#copyimg{
+  cursor: pointer;
+  width: 25px;
+  height: 25px
+}
+#copied{
+  display:none;
 }
 
 a {
@@ -61,9 +102,6 @@ a:hover {
   opacity: 70%;
 }
 
-p {
-  
-}
 
 .url {
     font-weight: 500;
@@ -71,6 +109,20 @@ p {
     padding: 20px 0;
     border-radius: 10px;
     font-size: 20px;
+    width: 500px;
+}
+
+.url2{
+  position: relative;
+  font-weight: 500;
+  background-color: #2589db;
+  padding: 20px 0;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 100px;
+  right: 0;
+  text-align: center;
+  left: 225px
 }
 
 .url-box {
@@ -106,10 +158,10 @@ p {
     margin-top: 100 auto;
     display: block;
     width: 100%;
-    height: 800px;
-    background: #c8cbd0;
+    height: 700px;
+    background: #2589db;
     border-radius: 8px;
-    top: 50%;
+    top: 60%;
     text-align: center;
 }
 
@@ -169,8 +221,67 @@ p {
   animation: slide-up 10s cubic-bezier(0.65, 0, 0.35, 1) both
   }
   @keyframes slide-up {
-  0%{transform: translateY(550px)}
+  0%{transform: translateY(500px)}
     
   100%
     {transform: translateY(0)}
   }
+
+
+.chains {
+  margin: 1px 0;
+	box-sizing: border-box;
+	display: block;
+	position: relative;
+	white-space: nowrap;
+	font-size: 30px;
+	height: 2.1em;
+	overflow: hidden;
+}
+	.chain {
+		box-sizing: inherit;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 3.86em;
+		height: 1em;
+		margin-left: -1.82em;
+		border: .33em solid;
+		border-radius: 1.05em;
+		box-shadow: -.02125em -.02125em 0 .02125em #fff, .02125em .02125em 0 .02125em #fff inset;
+	}
+	.chain::after {
+		content: '';
+		box-sizing: inherit;
+		border-radius: inherit;
+		border: inherit;
+		position: absolute;
+		top: -.33em;
+		left: -2.37em;
+		width: 3.86em;
+		height: 1em;
+		box-shadow: -.02125em -.02125em 0 .02125em #fff inset, .02125em .02125em 0 .02125em #fff;
+		-webkit-clip-path: polygon(50% 70%, 100% 70%, 100% 100%, 50% 100%);
+		clip-path: polygon(50% 70%, 100% 70%, 100% 100%, 50% 100%);
+	}
+	.chain:nth-child(3n), .chain:nth-child(3n+1)::after {
+		border-color: #2589db;
+	}
+	.chain:nth-child(3n+1), .chain:nth-child(3n+2)::after {
+		border-color: #242424;
+	}
+	.chain:nth-child(3n+2), .chain:nth-child(3n+3)::after {
+		border-color: #c8cbd0;
+	}
+	.chain:first-child::after {
+		display: none;
+	}
+
+
+
+
+
+
+
+
+  

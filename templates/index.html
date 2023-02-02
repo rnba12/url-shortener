@@ -3,19 +3,35 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-
-
-    <h1>Url Shortener</h1>
-    <form action="/short" method="post">
-        <input type="text" name="long_url" id="long_url" placeholder="Enter URL" required>
+<script>
+    function validateForm() {
+        var x = document.forms["myForm"]["long_url"].value;
+        console.log(x);
+        if (x == "" || x == null || x ==" ") {
+          alert("Please enter a URL");
+          return false;
+        }
+      }
+</script>
+<img src="{{url_for('static', filename="img/favicon.png")}}" alt="" width="100px" height="100px">
+    <h1>U-r-long Shortener</h1>
+    <form name="myForm" action="/short" method="post" onsubmit="return validateForm()">
+        <input type="text" name="long_url" id="long_url" placeholder="Enter URL" required >
         <input id="toggle" type="submit" value="Make It Short">
-
     </form>
 
-    
-    <div class="square animated slide-up"><div id="info">
-        <p>Free URL Shortener</p><p>Turn your long urls to short, easy to read links with this free url generator.</p>
-    </div></div>
 
+    <div class="square animated slide-up">
+
+    </div>
+
+    <div id="info">
+        <p>Free URL Shortener: Turn your long urls to short and easy to read links with our high quality generator.</p>
+    </div>
 {% endblock content %}
 
+{%block footer%}
+<div id="bottom">
+    <p>Get the right messages out to your audience without taking up too much space in your social posts.</p>
+</div>
+{%endblock footer%}

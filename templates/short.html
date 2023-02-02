@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block head%}
 <script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/anime.js')}}"></script>
+
 {%endblock head%}
 {% block title %}Short{% endblock title %}
 
@@ -13,19 +15,46 @@
         window.getSelection().addRange(range); // to select text
         document.execCommand("copy");
         window.getSelection().removeAllRanges();// to deselect
+    
+        var copied = document.getElementById("copied");
+        var image =  document.getElementById("copyimg");
+            if ((image.getAttribute('src') == "{{url_for('static', filename="img/copy.png")}}") && (copied.style.display == 'none'))
+            {
+                
+                image.src = "{{url_for('static', filename="img/copy2.png")}}";
+                copied.style.display = 'block';
+              
+            }
+            else
+            {
+                image.src = "{{url_for('static', filename="img/copy.png")}}";
+                copied.style.display = 'none';
+            }
+        
     }
+
 </script>
+
+<div class="chains">
+    <div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div>
+</div>
     <div class="animated squash url-box">
         <img src="http://www.google.com/s2/favicons?domain={{long_url}}" alt="">
         <div class="url">{{long_url}}</div>
     </div>
-    <p>That's Pretty Long</p>
-    <div class ="animated squash url-box">
-        <div class="url" id="ashortlink" >{{short_url}}</div>
-        <img id="copy" src="{{url_for('static', filename="img/copy.svg")}}"  onclick="copyDivToClipboard()" alt="Copy Link">
-    </div>
-    <p>That's better </p>
-    <a href="{{ url_for ('index') }}">Go home</a>
+    <p>That's Pretty Long...</p>
 
+    <div class ="animated squash url-box">
+        <div class="url" id="ashortlink" >localhost:5000/{{short_url}}</div>
+        <img id="copyimg" src="{{url_for('static', filename="img/copy.png")}}"  onclick="copyDivToClipboard()" alt="Copy Link">
+    </div>
+
+    <div class="url2" id="copied" >Copied</div>
+    <p>That's Better. </p>
+    <div class="chains">
+        <div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div>
+    </div>
+    <a href="{{ url_for ('index') }}">Go home</a>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 {% endblock content %}
 
